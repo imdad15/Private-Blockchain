@@ -39,13 +39,12 @@ class Block {
         let self = this;
         return new Promise((resolve, reject) => {
             // Save in auxiliary variable the current block hash
-                                            
+            let currentBlockHash = this.hash.toString();                               
             // Recalculate the hash of the Block
             // Comparing if the hashes changed
             // Returning the Block is not valid
-            
             // Returning the Block is valid
-
+             resolve(currentBlockHash !== SHA256(this.toString()));
         });
     }
 
@@ -59,12 +58,22 @@ class Block {
      *     or Reject with an error.
      */
     getBData() {
+        let self = this;
         // Getting the encoded data saved in the Block
+        let encodedData = self.body;
         // Decoding the data to retrieve the JSON representation of the object
+        let decodedData = hex2ascii(encodedData);
         // Parse the data to an object to be retrieve.
-
+        let dataJson = JSON.parse(decodedData);
         // Resolve with the data if the object isn't the Genesis block
-
+        if(self.height === 0) {
+            resolve("Genesis Block!!")
+        }
+        if(dataJson){
+            resolve(dataJson);    
+        } else {
+            reject('This Block has no data!!');
+        }
     }
 
 }
