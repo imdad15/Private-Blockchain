@@ -44,7 +44,7 @@ class Block {
             // Comparing if the hashes changed
             // Returning the Block is not valid
             // Returning the Block is valid
-             resolve(currentBlockHash !== SHA256(this.toString()));
+             resolve(currentBlockHash === SHA256(this.toString()));
         });
     }
 

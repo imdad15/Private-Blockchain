@@ -194,10 +194,25 @@ class Blockchain {
         let self = this;
         let errorLog = [];
         return new Promise(async (resolve, reject) => {
-            
+            for(var i=1; i<self.height; i++){
+                const currentBlock = self.chain[i];
+                if(!curentBlock.validate()){
+                    errorLog.push({
+                        block: currentBlock,
+                        error: 'Failed to validate'
+                    });
+                }
+
+                if(currentBlock.previousBlockHash !== self.chain[i-1].hash){
+                    errorLog.push({
+                        block: currentBlock,
+                        error: 'Error with previous block hash'
+                    });
+                }
+            }
+            resolve(errorLog);
         });
     }
-
 }
 
 module.exports.Blockchain = Blockchain;   
