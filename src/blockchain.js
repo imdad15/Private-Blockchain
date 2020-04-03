@@ -64,7 +64,23 @@ class Blockchain {
     _addBlock(block) {
         let self = this;
         return new Promise(async (resolve, reject) => {
-           
+           try{
+                if(this.getChainHeight === -1){
+                    //Genesis Block
+                    this.height = 1;
+                    block.height=1;
+                } else{
+                    block.previousBlockHash = this.chain[this.getChainHeight - 1].previousBlockHash;   
+                    this.height += 1;
+                    block.height += 1;
+                }
+                block.time = new Date().getTime().toString().slice(0, -3);
+                block.hash = SHA256(JSON.stringify(block)).toString();
+                this.chain.push(block);
+                resolve(block);
+            } catch(error){
+                reject(error);
+            }
         });
     }
 
