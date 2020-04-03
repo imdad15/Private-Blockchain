@@ -1,21 +1,6 @@
 # Private Blockchain Application
 
-You are starting your journey as a Blockchain Developer, this project allows you to demonstrate
-that you are familiarized with the fundamentals concepts of a Blockchain platform.
-Concepts like:
-    - Block
-    - Blockchain
-    - Wallet
-    - Blockchain Identity
-    - Proof of Existance
-
-Are some of the most important components in the Blockchain Framework that you will need to describe and also
-why not? Implement too.
-
-In this project you will have a boilerplate code with a REST Api already setup to expose some of the functionalities
-you will implement in your private blockchain.
-
-## What problem will you solve implementing this private Blockchain application?
+# Problem Statement
 
 Your employer is trying to make a test of concept on how a Blockchain application can be implemented in his company.
 He is an astronomy fans and he spend most of his free time on searching stars in the sky, that's why he would like
@@ -41,13 +26,11 @@ too but making sure the application know who owned each star.
 7. The application will allow us to retrieve the Star objects belong to an owner (wallet address). 
 
 
-## What tools or technologies you will use to create this application?
+## Tools or technologies used to create this application?
 
-- This application will be created using Node.js and Javascript programming language. The architecture will use ES6 classes
+- This application uses Node.js and Javascript programming language. The architecture will use ES6 classes
 because it will help us to organize the code and facilitate the maintnance of the code.
-- The company suggest to use Visual Studio Code as an IDE to write your code because it will help you debug the code easily
-but you can choose the code editor you feel confortable with.
-- Some of the libraries or npm modules you will use are:
+- Libraries or npm modules used are:
     - "bitcoinjs-lib": "^4.0.3",
     - "bitcoinjs-message": "^2.0.0",
     - "body-parser": "^1.18.3",
@@ -55,7 +38,6 @@ but you can choose the code editor you feel confortable with.
     - "express": "^4.16.4",
     - "hex2ascii": "0.0.3",
     - "morgan": "^1.9.1"
-    Remember if you need install any other library you will use `npm install <npm_module_name>`
 
 Libraries purpose:
 
@@ -73,17 +55,6 @@ The Boilerplate code is a simple architecture for a Blockchain application, it i
 2. `BlockchainController.js` file. It contains the routes of the REST Api. Those are the methods that expose the urls you will need to call when make a request to the application.
 3. `src` folder. In here we are going to have the main two classes we needed to create our Blockchain application, we are going to create a `block.js` file and a `blockchain.js` file that will contain the `Block` and `BlockChain` classes.
 
-### Starting with the boilerplate code:
-
-First thing first, we are going to download or clone our boilerplate code.
-
-Then we need to install all the libraries and module dependencies, to do that: open a terminal and run the command `npm install`
-
-**( Remember to be able to work on this project you will need to have installed in your computer Node.js and npm )**
-
-At this point we are ready to run our project for first time, use the command: `node app.js`
-
-You can check in your terminal the the Express application is listening in the PORT 8000
 
 ## What do I need to implement to satisfy my employer requirements?
 
@@ -180,22 +151,21 @@ You can check in your terminal the the Express application is listening in the P
      * 2. Each Block should check the with the previousBlockHash
      */
 
-## How to test your application functionalities?
+## Application functionalities - 
 
-To test your application I recommend you to use POSTMAN, this tool will help you to make the requests to the API.
-Always is useful to debug your code see what is happening in your algorithm, so I will let you this video for you to check on how to do it >https://www.youtube.com/watch?v=6cOsxaNC06c . Try always to debug your code to understand what you are doing.
+The application is tested using POSTMAN - 
 
-1. Run your application using the command `node app.js`
+1. Run the application using the command `node app.js`
 You should see in your terminal a message indicating that the server is listening in port 8000:
 > Server Listening for port: 8000
 
-2. To make sure your application is working fine and it creates the Genesis Block you can use POSTMAN to request the Genesis block:
-    ![Request: http://localhost:8000/block/0 ](https://s3.amazonaws.com/video.udacity-data.com/topher/2019/April/5ca360cc_request-genesis/request-genesis.png)
-3. Make your first request of ownership sending your wallet address:
-    ![Request: http://localhost:8000/requestValidation ](https://s3.amazonaws.com/video.udacity-data.com/topher/2019/April/5ca36182_request-ownership/request-ownership.png)
+2. To make sure application is working fine and it creates the Genesis Block you can use POSTMAN to request the Genesis block:
+    ![Request: http://localhost:8000/block/0 ](https://github.com/imdad15/Private-Blockchain/blob/master/screenshots/1.GenesisBlock.png)
+3. Make first request of ownership sending your wallet address:
+    ![Request: http://localhost:8000/requestValidation ](https://github.com/imdad15/Private-Blockchain/blob/master/screenshots/2.RequestValidation.png)
 4. Sign the message with your Wallet:
-    ![Use the Wallet to sign a message](https://s3.amazonaws.com/video.udacity-data.com/topher/2019/April/5ca36182_request-ownership/request-ownership.png)
+    ![Use the Wallet to sign a message](https://github.com/imdad15/Private-Blockchain/blob/master/screenshots/3.SignMessage.png)
 5. Submit your Star
-     ![Request: http://localhost:8000/submitstar](https://s3.amazonaws.com/video.udacity-data.com/topher/2019/April/5ca365d3_signing-message/signing-message.png)
+     ![Request: http://localhost:8000/submitstar](https://github.com/imdad15/Private-Blockchain/blob/master/screenshots/4.SubmitStar.png)
 6. Retrieve Stars owned by me
-    ![Request: http://localhost:8000/blocks/<WALLET_ADDRESS>](https://s3.amazonaws.com/video.udacity-data.com/topher/2019/April/5ca362b9_retrieve-stars/retrieve-stars.png)
+    ![Request: http://localhost:8000/blocks/<WALLET_ADDRESS>](https://github.com/imdad15/Private-Blockchain/blob/master/screenshots/5.GetStarsByWalletAddress.png)
